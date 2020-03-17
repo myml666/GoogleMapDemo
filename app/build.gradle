@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.jinyou.eggla"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                                GOOGLEMAP_APIKEY:"AIzaSyDVzq7EOxgKUSznJ7-Dojkx-VvKQgaH35Q"
+        ]
+    }
+    signingConfigs {
+        release {
+            keyAlias 'egglaeggla'
+            keyPassword 'egglaeggla'
+//            storeFile file('E:\\ASKeystore/chilemo/chilemo.jks')
+            storeFile file('D:\\AndroidProject\\key\\AndroidKey\\eggla.jks')
+            storePassword 'egglaeggla'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildTypes {
+        release {
+            shrinkResources false // 是否去除无效的资源文件
+            minifyEnabled false //是否混淆
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 为发布构建类型禁用PNG运算。
+//            crunchPngs false
+        }
+        debug {
+            signingConfig signingConfigs.release
+            ext.enableCrashlytics = false
+            ext.alwaysUpdateBuildId = false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.android.gms:play-services-maps:9.4.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

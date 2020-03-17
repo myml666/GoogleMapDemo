@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/item_map"
+        map:cameraZoom="13"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+    </com.google.android.gms.maps.MapView>
+    <View
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</LinearLayout>
