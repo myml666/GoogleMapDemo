@@ -80,7 +80,7 @@ public class MapListActivity extends AppCompatActivity {
 
                             //添加标记到指定经纬度
                             googleMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title("Marker")
-                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_huodong)));
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_dog)));
                         }
                     });
                 }else {
@@ -91,7 +91,7 @@ public class MapListActivity extends AppCompatActivity {
         maplistRv.setAdapter(baseQuickAdapter);
     }
     /**
-     * Google地图获取地址
+     * Google地图根据经纬度获取地址
      */
     private void googleMapgetAddress(double shopLng, double shopLat, final TextView textView){
         if(geocoder == null){

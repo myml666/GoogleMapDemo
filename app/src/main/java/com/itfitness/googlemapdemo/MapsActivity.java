@@ -27,25 +27,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        MapView mMap = (MapView) findViewById(R.id.map);
-        mMap.onCreate(savedInstanceState);
-        mMap.onResume();
-        try {
-            MapsInitializer.initialize(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        int errorCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (ConnectionResult.SUCCESS != errorCode) {
-            GooglePlayServicesUtil.getErrorDialog(errorCode, this, 0).show();
-        } else {
-            mMap.getMapAsync(this);
-        }
+//        MapView mMap = (MapView) findViewById(R.id.map);
+//        mMap.onCreate(savedInstanceState);
+//        mMap.onResume();
+//        try {
+//            MapsInitializer.initialize(this);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        int errorCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+//        if (ConnectionResult.SUCCESS != errorCode) {
+//            GooglePlayServicesUtil.getErrorDialog(errorCode, this, 0).show();
+//        } else {
+//            mMap.getMapAsync(this);
+//        }
+        //Fragment方式实现
 //        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
 
@@ -64,7 +65,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(36.69314, 117.10170);
-        BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_huodong);
+        BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.ic_dog);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").icon(bitmapDescriptor));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //        mMap.setMinZoomPreference(6.0f);

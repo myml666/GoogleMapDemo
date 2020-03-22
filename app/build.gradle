@@ -18,7 +18,7 @@ android {
             keyAlias 'egglaeggla'
             keyPassword 'egglaeggla'
 //            storeFile file('E:\\ASKeystore/chilemo/chilemo.jks')
-            storeFile file('D:\\AndroidProject\\key\\AndroidKey\\eggla.jks')
+            storeFile file('E:\\Program Files (x86)\\QQTem\\1531454635\\FileRecv\\MobileFile\\eggla.jks')
             storePassword 'egglaeggla'
         }
     }
